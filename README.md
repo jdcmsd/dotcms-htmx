@@ -35,15 +35,15 @@ docker ps
 You should see docker containers for DotCMS, Postgres, and Elasticsearch.
 
 ### Open browsers to DotCMS front-end and back-end 
-DotCMS app is listening on two ports - either is fine, we'll use 8080.
+DotCMS app is listening on two ports - either is fine, we'll use 8082.
 
-`http:  8080`
+`http:  8082`
 
 `https: 8443` - you must accept the SSL cert 
 
 Open a broweser and log in to DotCMS back-end:
 
-[http://localhost:8080/dotAdmin/](http://localhost:8080/dotAdmin/) 
+[http://localhost:8082/dotAdmin/](http://localhost:8082/dotAdmin/) 
 
 ```
 username: admin@dotcms.com
@@ -52,7 +52,7 @@ password: admin
 
 Open a different browser or incognito window and browse to the Search page (you won't see any search results until you create a Site Search index).
 
-[http://localhost:8080/search/](http://localhost:8080/search/) 
+[http://localhost:8082/search/](http://localhost:8082/search/) 
 
  A version of the demo site is always publically available at [https://demo.dotcms.com](https://demo.dotcms.com) but it is recreated multiple times/day so your changes will not persist and can be changed by others using the site.
 
@@ -77,7 +77,7 @@ The "View All Jobs" tab shows the progress. It should take only a couple minutes
 Once complete, the "Indices" tab should show a healthy index.
 
 ### Note the query strings used by static search page
-In the front-end browser, search for "ski" at [http://localhost:8080/search/](http://localhost:8080/search/) 
+In the front-end browser, search for "ski" at [http://localhost:8082/search/](http://localhost:8082/search/) 
 
 You should see search results. Note the uri for the first page of results:
 
@@ -87,7 +87,7 @@ Scroll down and click **2** for the next page of results and note the uri adds `
 
 `/search/index?q=ski&p=1`
 
-[http://localhost:8080/search/index?q=ski&p=1](http://localhost:8080/search/index?q=ski&p=1) 
+[http://localhost:8082/search/index?q=ski&p=1](http://localhost:8082/search/index?q=ski&p=1) 
 
 ## Load htmx javascript in the Theme footer
 ["Installing htmx" docs](https://htmx.org/docs/#installing)
@@ -106,12 +106,12 @@ Double-click `footer.vtl` - scroll to the bottom of file editor and add htmx to 
 ```
 click Publish
 
-On the front-end site,  reload and "view source" on the [/search/](http://localhost:8080/search/) page to confirm htmx is included in the footer.
+On the front-end site,  reload and "view source" on the [/search/](http://localhost:8082/search/) page to confirm htmx is included in the footer.
 
 ## Simplify VTL in the static /search/ page
 Let's examine the behavior of the "static" search page which we are going to refactor.
 
-On [/search/](http://localhost:8080/search/) submit a search for "ski"
+On [/search/](http://localhost:8082/search/) submit a search for "ski"
 
 The search results are paginated with 10 results page - scroll down to see links to the other pages of paginated results.
 
@@ -194,9 +194,9 @@ click "Publish"
 ### Test search-results Page
 Try a couple tests
 
-[http://localhost:8080/search/search-results?q=ski](http://localhost:8080/search/search-results?q=ski)
+[http://localhost:8082/search/search-results?q=ski](http://localhost:8082/search/search-results?q=ski)
 
-[http://localhost:8080/search/search-results?q=ski&p=2](http://localhost:8080/search/search-results?q=ski&p=2)
+[http://localhost:8082/search/search-results?q=ski&p=2](http://localhost:8082/search/search-results?q=ski&p=2)
 
 Looks good! There is some pagination cruft to clean up but the functionality is there.
 
@@ -241,7 +241,7 @@ All that needs remain of the original code is the search form and associated mar
 <span id="search-results-htmx"></span>
 ```
 
-Go to [http://localhost:8080/search/](http://localhost:8080/search/) and try a few searches. For searches with more than 10 results like 
+Go to [http://localhost:8082/search/](http://localhost:8082/search/) and try a few searches. For searches with more than 10 results like 
 ```
 store
 ski
